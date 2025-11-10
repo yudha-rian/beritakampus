@@ -14,10 +14,11 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {
-        $this->call([
-            MahasiswaSeeder::class,
-        ]);
+{
+ $this->call([
+ ProductSeeder::class,
+ ]);
+}
         
         
         // --- Baris di bawah ini opsional ---
@@ -27,4 +28,4 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
     }
-}
+
