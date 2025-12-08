@@ -1,5 +1,4 @@
 <?php
-// app/Models/Customer.php
 
 namespace App\Models;
 
@@ -10,9 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
-    /**
-     * Kolom yang boleh diisi secara massal.
-     */
+    // Menentukan kolom mana saja yang boleh diisi oleh user
     protected $fillable = [
         'name',
         'email',
