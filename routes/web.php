@@ -7,6 +7,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\UserController;
 // ----------------------------------------------------
 
 
@@ -49,3 +50,7 @@ Route::post('/loans', [LoanController::class, 'store'])->name('loans.store');
 
 // Route Kembalikan Buku (Update return_date)
 Route::post('/loans/{id}/return', [LoanController::class, 'returnBook'])->name('loans.return');
+
+// Route Form Tambah Anggota
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');

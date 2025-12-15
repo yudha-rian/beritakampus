@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model; // <--- INI YANG WAJIB ADA
+use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    use HasFactory; // Aktifkan ini agar bisa di-seed
+    use HasFactory;
 
-    protected $fillable = ['user_id', 'address', 'phone'];
+    // TAMBAHKAN INI AGAR DATA PROFIL BISA DISIMPAN:
+    protected $fillable = ['user_id', 'address', 'phone', 'birthdate'];
 
     public function user()
     {

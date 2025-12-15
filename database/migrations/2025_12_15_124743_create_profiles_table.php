@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            
+            // --- INI BAGIAN PENTINGNYA (Foreign Key) ---
+            // Relasi ke tabel 'users'. 
+            // onDelete('cascade') artinya jika User dihapus, Profile ikut terhapus otomatis.
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
+            
+            // Data tambahan sesuai soal
+            $table->text('address');      // Alamat
+            $table->string('phone');      // Nomor Telepon
+            $table->date('birthdate');    // Tanggal Lahir
+            
             $table->timestamps();
         });
     }
@@ -25,3 +36,4 @@ return new class extends Migration
         Schema::dropIfExists('profiles');
     }
 };
+

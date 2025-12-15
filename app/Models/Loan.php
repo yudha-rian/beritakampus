@@ -2,17 +2,30 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Loan extends Model
 {
-    public function user()
-{
-    return $this->belongsTo(User::class);
-}
+    use HasFactory;
 
-public function book()
-{
-    return $this->belongsTo(Book::class);
-}
+    // TAMBAHKAN BAGIAN INI:
+    protected $fillable = [
+        'user_id', 
+        'book_id', 
+        'loan_date', 
+        'return_date'
+    ];
+
+    // Relasi ke User (Peminjam)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // Relasi ke Buku (Yang dipinjam)
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }

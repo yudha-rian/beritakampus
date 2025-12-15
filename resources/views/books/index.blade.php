@@ -15,6 +15,10 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="mb-0 fw-bold text-primary">📚 Daftar Buku</h2>
             <div>
+                <a href="{{ route('users.create') }}" class="btn btn-outline-primary me-2">
+                    👤 Tambah Anggota
+                </a>
+    
                 <a href="{{ route('loans.create') }}" class="btn btn-warning shadow-sm me-2">
                     📋 Catat Peminjaman
                 </a>
