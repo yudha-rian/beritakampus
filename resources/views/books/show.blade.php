@@ -31,19 +31,30 @@
                     <th>Tanggal Kembali</th>
                 </tr>
             </thead>
-            <tbody>
-                @forelse($book->loans as $loan)
-                <tr>
-                    <td>{{ $loan->user->name }}</td>
-                    <td>{{ $loan->loan_date }}</td>
-                    <td>{{ $loan->return_date ?? 'Belum Kembali' }}</td>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="3" class="text-center text-muted">Belum ada yang meminjam buku ini.</td>
-                </tr>
-                @endforelse
-            </tbody>
+<tbody>
+    @forelse($book->loans as $loan)
+    <tr>
+        <td>{{ $loan->user->name }}</td>
+        <td>{{ $loan->loan_date }}</td>
+        <td>
+            @if($loan->return_date)
+                <span class="text-success">{{ $loan->return_date }}</span>
+            @else
+                <span class="badge bg-warning text-dark mb-2">Sedang Dipinjam</span>
+                
+                <form action="{{ route('loans.return', $loan->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-outline-success">✅ Kembalikan</button>
+                </form>
+            @endif
+        </td>
+    </tr>
+    @empty
+    <tr>
+        <td colspan="3" class="text-center text-muted">Belum ada riwayat peminjaman.</td>
+    </tr>
+    @endforelse
+</tbody>
         </table>
 
         <a href="{{ route('books.index') }}" class="btn btn-secondary mt-3">&laquo; Kembali ke Daftar</a>

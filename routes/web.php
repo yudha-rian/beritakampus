@@ -6,7 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RegistrationController; 
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\BookController;
-
+use App\Http\Controllers\LoanController;
 // ----------------------------------------------------
 
 
@@ -42,3 +42,10 @@ Route::get('/', function () {
 
 // Route CRUD Buku
 Route::resource('books', BookController::class);
+
+// Route Form Peminjaman
+Route::get('/loans/create', [LoanController::class, 'create'])->name('loans.create');
+Route::post('/loans', [LoanController::class, 'store'])->name('loans.store');
+
+// Route Kembalikan Buku (Update return_date)
+Route::post('/loans/{id}/return', [LoanController::class, 'returnBook'])->name('loans.return');

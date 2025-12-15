@@ -72,4 +72,17 @@ class BookController extends Controller
 
         return view('books.show', compact('book'));
     }
-}
+
+    /**
+     * Menghapus Buku
+     */
+    public function destroy($id)
+    {
+        $book = Book::findOrFail($id);
+        
+        // Hapus buku
+        $book->delete();
+
+        return redirect()->route('books.index')->with('success', 'Buku berhasil dihapus!');
+    }
+} 
