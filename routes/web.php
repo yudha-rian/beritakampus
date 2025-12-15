@@ -54,3 +54,4 @@ Route::post('/loans/{id}/return', [LoanController::class, 'returnBook'])->name('
 // Route Form Tambah Anggota
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
+

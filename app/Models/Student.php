@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model; // <--- WAJIB DITAMBAHKAN
+use Illuminate\Database\Eloquent\Model; 
 
 class Student extends Model
 {
@@ -16,3 +16,4 @@ class Student extends Model
         return $this->belongsToMany(Course::class);
     }
 }
+

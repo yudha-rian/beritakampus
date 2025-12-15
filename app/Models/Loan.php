@@ -29,3 +29,4 @@ class Loan extends Model
         return $this->belongsTo(Book::class);
     }
 }
+

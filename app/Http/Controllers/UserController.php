@@ -47,3 +47,4 @@ class UserController extends Controller
         return redirect()->route('books.index')->with('success', 'Anggota baru berhasil didaftarkan!');
     }
 }
+
